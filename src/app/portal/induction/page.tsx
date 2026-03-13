@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { CheckCircle2, ChevronRight, Play, Rocket, Calendar, FileCode, ArrowLeft } from 'lucide-react'
+import { CheckCircle2, ChevronRight, Play, Rocket, Calendar, FileCode, ArrowLeft, Shield } from 'lucide-react'
 import Link from 'next/link'
 import CyberWebBackground from '@/components/landing/CyberWebBackground'
 

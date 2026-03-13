@@ -45,11 +45,23 @@ export async function provisionStripeLink(projectId: string, projectName: string
       },
     })
 
-    // 2. Create Payment Link
+    // 2. Create the Payment Link with Identity Requirements
     const paymentLink = await stripe.paymentLinks.create({
       line_items: [{ price: price.id, quantity: 1 }],
       after_completion: { type: 'redirect', redirect: { url: 'https://vizulux.com/portal/induction' } },
+      phone_number_collection: { enabled: true },
+      custom_fields: [
+        {
+          key: 'business_name',
+          label: { type: 'custom', custom: 'Business Entity Name' },
+          type: 'text',
+          optional: false
+        }
+      ],
+      // Enable automated tax/invoice details if desired
+      tax_id_collection: { enabled: true }
     })
+
 
     // 3. Sync to Supabase only (No email yet)
     const updateField = isSubscription ? 'retainer_link' : 'invoice_link'
