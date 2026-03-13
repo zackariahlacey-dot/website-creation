@@ -7,10 +7,14 @@ import { Send, Zap, Milestone, AlertTriangle } from 'lucide-react'
 export function ProjectUpdateManager({ project, clientEmail }: { project: any, clientEmail: string }) {
   const [isOpen, setIsOpen] = useState(false)
   const [loading, setLoading] = useState(false)
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    title: string,
+    content: string,
+    type: 'update' | 'milestone' | 'alert'
+  }>({
     title: '',
     content: '',
-    type: 'update' as const
+    type: 'update'
   })
 
   const handleSubmit = async (e: React.FormEvent) => {

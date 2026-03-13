@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { updateProjectStatus, linkProjectToClient } from '@/app/actions/admin'
-import { Clock, ExternalLink, Loader2, UserLink } from 'lucide-react'
+import { Clock, ExternalLink, Loader2 } from 'lucide-react'
 import { ProjectUpdateManager } from './ProjectUpdateManager'
 import { useRouter } from 'next/navigation'
 

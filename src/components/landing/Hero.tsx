@@ -48,11 +48,11 @@ export default function Hero({ city }: { city: string }) {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1400px] h-[1400px] light-leak-violet opacity-40" />
         <div className="absolute top-0 right-0 w-[800px] h-[800px] light-leak-amber opacity-30 blur-[160px]" />
         
-        {/* 3D Grid Floor with Parallax */}
         <motion.div 
-          style={{ x: springX, y: springY }}
           className="absolute bottom-0 left-[-10%] right-[-10%] h-[60vh] opacity-30"
           style={{
+            x: springX,
+            y: springY,
             backgroundImage: `linear-gradient(to right, #27272a 1px, transparent 1px), linear-gradient(to bottom, #27272a 1px, transparent 1px)`,
             backgroundSize: '100px 100px',
             maskImage: 'radial-gradient(ellipse at center, black, transparent 80%)',
