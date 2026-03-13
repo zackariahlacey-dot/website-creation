@@ -34,9 +34,13 @@ export default async function AdminLayout({
         <div className="flex items-center gap-12">
           <div className="flex items-center gap-3">
             <div className="w-2 h-2 rounded-full bg-violet-500 animate-pulse" />
-            <Link href="/" className="font-black text-white tracking-[0.3em] text-xs uppercase">Vizulux_Mainframe</Link>
+            <Link href="/" className="font-black text-white tracking-[0.3em] text-xs uppercase hover:text-violet-400 transition-colors">Vizulux_Mainframe</Link>
           </div>
-          <div className="flex items-center gap-8 text-[10px] text-zinc-500 font-bold uppercase tracking-widest">
+          <div className="flex items-center gap-8 text-[10px] text-zinc-500 font-bold uppercase tracking-widest border-l border-white/10 pl-8">
+            <Link href="/" className="hover:text-white transition-colors flex items-center gap-2">
+              <div className="w-1 h-1 rounded-full bg-zinc-800" />
+              Public_View
+            </Link>
             <Link href="/admin" className="hover:text-white transition-colors">Operations</Link>
             <Link href="/admin/projects" className="hover:text-white transition-colors">Build_Queue</Link>
           </div>

@@ -5,6 +5,7 @@ import Blueprint from "@/components/landing/Blueprint";
 import MarketAuthority from "@/components/landing/MarketAuthority";
 import PortalShowcase from "@/components/landing/PortalShowcase";
 import LeadForm from "@/components/landing/LeadForm";
+import Footer from "@/components/landing/Footer";
 import CyberWebBackground from "@/components/landing/CyberWebBackground";
 import { headers } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
@@ -28,9 +29,7 @@ export default async function Home() {
         <PortalShowcase isLoggedIn={!!user} />
         <LeadForm />
       </main>
-      <footer className="py-12 px-8 border-t border-zinc-900 bg-black text-center text-zinc-600 text-sm">
-        <p>© 2026 VIZULUX. Built for the Future.</p>
-      </footer>
+      <Footer />
     </div>
   );
 }

@@ -123,7 +123,13 @@ export default async function PortalLayout({
       />
 
       <nav className="border-b border-white/5 px-8 py-4 flex items-center justify-between relative z-50 backdrop-blur-xl bg-black/40">
-        <Link href="/" className="font-black text-white tracking-[0.3em] text-xs uppercase">Vizulux_HQ</Link>
+        <div className="flex items-center gap-12">
+          <Link href="/" className="font-black text-white tracking-[0.3em] text-xs uppercase hover:text-violet-400 transition-colors text-zinc-400">Vizulux_HQ</Link>
+          <Link href="/" className="text-[10px] text-zinc-500 font-bold uppercase tracking-widest hover:text-white transition-colors flex items-center gap-2 border-l border-white/10 pl-8">
+            <div className="w-1 h-1 rounded-full bg-zinc-800" />
+            Public_View
+          </Link>
+        </div>
         <div className="flex items-center gap-8">
           <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">{user.email}</span>
           <form action="/auth/signout" method="post">
