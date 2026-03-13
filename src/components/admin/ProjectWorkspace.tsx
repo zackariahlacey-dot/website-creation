@@ -6,6 +6,7 @@ import { Github, CreditCard, Link as LinkIcon, Database, Terminal, CheckCircle2,
 import { motion, AnimatePresence } from 'framer-motion'
 import { ProjectUpdateManager } from './ProjectUpdateManager'
 import { TaskManager } from './TaskManager'
+import { BillingNode } from './BillingNode'
 import { useRouter } from 'next/navigation'
 
 const lifecycleSteps = [
@@ -166,59 +167,43 @@ export function ProjectWorkspace({ project, clientEmail }: { project: any, clien
                 </div>
               </div>
 
-              {/* Column 2: Technical Specifications */}
-              <div className="space-y-10">
+              {/* Column 2: Tech Specs & Financials */}
+              <div className="space-y-12">
                 <section className="space-y-6">
                   <h4 className="text-[10px] font-black text-zinc-600 uppercase tracking-[0.4em] flex items-center gap-2">
                     <Terminal className="w-3 h-3" /> Technical_Specs
                   </h4>
-                  <div className="space-y-6">
-                    <div className="space-y-2">
-                      <label className="text-[8px] font-bold text-zinc-700 uppercase ml-1">GitHub Repository</label>
-                      <div className="relative">
-                        <Github className="absolute left-4 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-zinc-600" />
-                        <input 
-                          value={specs.github_repo}
-                          onChange={(e) => setSpecs({ ...specs, github_repo: e.target.value })}
-                          className="w-full bg-black border border-white/5 rounded-xl pl-12 pr-4 py-3 text-[10px] text-white focus:border-violet-500 outline-none"
-                          placeholder="vizulux/client-repo"
-                        />
-                      </div>
+                  <div className="space-y-4">
+                    <div className="space-y-1">
+                      <label className="text-[7px] font-bold text-zinc-700 uppercase ml-1">GitHub Repository</label>
+                      <input 
+                        value={specs.github_repo}
+                        onChange={(e) => setSpecs({ ...specs, github_repo: e.target.value })}
+                        className="w-full bg-black border border-white/5 rounded-xl px-4 py-2 text-[10px] text-white focus:border-violet-500 outline-none"
+                        placeholder="vizulux/repo"
+                      />
                     </div>
-                    <div className="space-y-2">
-                      <label className="text-[8px] font-bold text-zinc-700 uppercase ml-1">Vercel Preview URL</label>
-                      <div className="relative">
-                        <Globe className="absolute left-4 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-zinc-600" />
-                        <input 
-                          value={specs.preview_url}
-                          onChange={(e) => setSpecs({ ...specs, preview_url: e.target.value })}
-                          className="w-full bg-black border border-white/5 rounded-xl pl-12 pr-4 py-3 text-[10px] text-white focus:border-violet-500 outline-none"
-                          placeholder="https://client-preview.vercel.app"
-                        />
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-[8px] font-bold text-zinc-700 uppercase ml-1">Stripe Customer ID</label>
-                      <div className="relative">
-                        <CreditCard className="absolute left-4 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-zinc-600" />
-                        <input 
-                          value={specs.stripe_customer_id}
-                          onChange={(e) => setSpecs({ ...specs, stripe_customer_id: e.target.value })}
-                          className="w-full bg-black border border-white/5 rounded-xl pl-12 pr-4 py-3 text-[10px] text-white focus:border-violet-500 outline-none"
-                          placeholder="cus_R123..."
-                        />
-                      </div>
+                    <div className="space-y-1">
+                      <label className="text-[7px] font-bold text-zinc-700 uppercase ml-1">Vercel Preview</label>
+                      <input 
+                        value={specs.preview_url}
+                        onChange={(e) => setSpecs({ ...specs, preview_url: e.target.value })}
+                        className="w-full bg-black border border-white/5 rounded-xl px-4 py-2 text-[10px] text-white focus:border-violet-500 outline-none"
+                        placeholder="https://preview.vercel.app"
+                      />
                     </div>
                     <button 
                       onClick={handleSaveSpecs}
                       disabled={loading === 'specs'}
-                      className="w-full py-4 bg-zinc-900 text-white font-black text-[9px] uppercase tracking-[0.3em] rounded-xl hover:bg-zinc-800 transition-all flex items-center justify-center gap-3 border border-white/5"
+                      className="w-full py-3 bg-zinc-950 text-zinc-400 font-bold text-[8px] uppercase tracking-widest rounded-xl border border-white/5 hover:bg-zinc-900 transition-all flex items-center justify-center gap-2"
                     >
-                      {loading === 'specs' ? <Loader2 className="w-3 h-3 animate-spin" /> : <Save className="w-3 h-3" />}
-                      Sync_Technical_Nodes
+                      {loading === 'specs' ? <Loader2 className="w-2.5 h-2.5 animate-spin" /> : <Save className="w-2.5 h-2.5" />}
+                      Update_Specs
                     </button>
                   </div>
                 </section>
+
+                <BillingNode project={project} />
               </div>
 
               {/* Column 3: Build Tasks & Broadcast */}
