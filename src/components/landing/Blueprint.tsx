@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
-import { Search, PenTool, Code2, Rocket, CheckCircle2, Zap, Activity, Cpu } from 'lucide-react'
+import { Search, PenTool, Code2, Rocket, CheckCircle2, Zap, Activity, Cpu, Hexagon } from 'lucide-react'
 import { useRef } from 'react'
 
 const steps = [
@@ -58,7 +58,33 @@ export default function Blueprint() {
 
   return (
     <section id="process" ref={containerRef} className="py-20 md:py-64 bg-black relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-8">
+      {/* Desktop Blueprint Background Decorative Elements */}
+      <div className="absolute inset-0 pointer-events-none hidden lg:block overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+        
+        {/* Floating Blueprint Accents */}
+        <motion.div 
+          style={{ y: useTransform(scrollYProgress, [0, 1], [0, -200]) }}
+          className="absolute top-1/4 left-10 w-64 h-64 border border-white/5 rounded-full flex items-center justify-center rotate-12"
+        >
+          <div className="w-48 h-48 border border-white/5 rounded-full border-dashed animate-spin-slow" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <Cpu className="text-white/10 w-12 h-12" />
+          </div>
+        </motion.div>
+
+        <motion.div 
+          style={{ y: useTransform(scrollYProgress, [0, 1], [0, 200]) }}
+          className="absolute bottom-1/4 right-10 w-96 h-96 border border-white/5 flex items-center justify-center -rotate-12"
+        >
+          <div className="w-full h-full border border-white/5 border-dashed" />
+          <div className="absolute top-0 left-0 p-4 font-mono text-[8px] text-white/20">
+            [ COORDINATE_MAPPING_ACTIVE ]
+          </div>
+        </motion.div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
         
         {/* Technical Header */}
         <div className="mb-16 md:mb-40 text-center md:text-left">
@@ -88,6 +114,8 @@ export default function Blueprint() {
               className="absolute left-1/2 -translate-x-1/2 w-3 h-3 md:w-4 md:h-4 bg-white rounded-full shadow-[0_0_30px_white] z-30"
             >
               <div className="absolute inset-[-10px] border border-white/20 rounded-full animate-ping" />
+              {/* Desktop Only Laser Halo */}
+              <div className="hidden lg:block absolute inset-[-40px] bg-white/5 rounded-full blur-xl animate-pulse" />
             </motion.div>
           </div>
 
@@ -132,21 +160,34 @@ function StepNode({ step, index }: { step: any, index: number }) {
     offset: ["start 90%", "end 10%"]
   })
 
-  // Peak state happens at 0.3 (lower screen) instead of 0.5 (center)
-  const scale = useTransform(scrollYProgress, [0.1, 0.3, 0.6], [0.9, 1.05, 0.9])
-  const opacity = useTransform(scrollYProgress, [0.05, 0.3, 0.7], [0.3, 1, 0.3])
-  const x = useTransform(scrollYProgress, [0.1, 0.3, 0.6], [index % 2 === 0 ? -20 : 20, 0, index % 2 === 0 ? -20 : 20])
+  // Peak state adjustments for desktop feel
+  const scale = useTransform(scrollYProgress, [0.1, 0.3, 0.6], [0.95, 1.05, 0.95])
+  const opacity = useTransform(scrollYProgress, [0.05, 0.3, 0.7], [0.4, 1, 0.4])
+  const x = useTransform(scrollYProgress, [0.1, 0.3, 0.6], [index % 2 === 0 ? -30 : 30, 0, index % 2 === 0 ? -30 : 30])
+  const rotateY = useTransform(scrollYProgress, [0.1, 0.3, 0.6], [index % 2 === 0 ? 10 : -10, 0, index % 2 === 0 ? 10 : -10])
 
   return (
     <motion.div 
       ref={cardRef}
-      style={{ scale, opacity, x }}
-      className={`flex items-center w-full ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+      style={{ 
+        scale, 
+        opacity, 
+        x,
+        rotateY: typeof window !== 'undefined' && window.innerWidth > 1024 ? rotateY : 0,
+        perspective: 1000
+      }}
+      className={`flex items-center w-full ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
     >
-      <div className={`w-full md:w-[45%] pl-12 md:pl-0 ${index % 2 === 0 ? 'md:pr-20' : 'md:pl-20 text-right'}`}>
+      <div className={`w-full lg:w-[45%] pl-12 lg:pl-0 ${index % 2 === 0 ? 'lg:pr-20' : 'lg:pl-20 lg:text-right'}`}>
         <div className="relative group">
+          {/* Desktop Exclusive Floating Data Points */}
+          <div className="hidden lg:block absolute -top-10 -left-10 w-24 h-24 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
+            <div className="w-full h-full border-t border-l border-white/20" />
+            <span className="absolute top-2 left-2 text-[6px] font-mono text-zinc-600">SYS_PT_{step.id}</span>
+          </div>
+
           {/* Card Glass */}
-          <div className="glass p-8 md:p-12 rounded-[40px] border-white/5 bg-zinc-950/20 overflow-hidden relative hud-grid group-hover:border-white/20 transition-all duration-700">
+          <div className="glass p-8 md:p-12 rounded-[40px] border-white/5 bg-zinc-950/20 overflow-hidden relative hud-grid group-hover:border-white/20 transition-all duration-700 shadow-2xl">
             
             {/* Header Telemetry */}
             <div className="flex justify-between items-start mb-8">
@@ -167,8 +208,12 @@ function StepNode({ step, index }: { step: any, index: number }) {
             {/* Tactical Progress Bar */}
             <div className="space-y-2">
               <div className="flex justify-between items-center text-[7px] font-black text-zinc-700 uppercase tracking-widest">
-                <span>Build Progress</span>
-                <span>100%</span>
+                <span>Phase Readiness</span>
+                <motion.span 
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  className="text-white"
+                >100%</motion.span>
               </div>
               <div className="h-[2px] w-full bg-zinc-900 rounded-full overflow-hidden">
                 <motion.div 
@@ -181,6 +226,11 @@ function StepNode({ step, index }: { step: any, index: number }) {
               </div>
             </div>
 
+            {/* Desktop Exclusive Hover Tech Patterns */}
+            <div className="hidden lg:block absolute bottom-4 right-4 opacity-0 group-hover:opacity-10 transition-opacity">
+              <Hexagon className="w-12 h-12 text-white" />
+            </div>
+
             {/* Internal Laser Scan HUD */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent h-1/4 w-full -translate-y-full group-hover:animate-scan pointer-events-none opacity-10" />
           </div>
@@ -188,7 +238,7 @@ function StepNode({ step, index }: { step: any, index: number }) {
           {/* Background Glow */}
           <div 
             style={{ backgroundColor: step.hex }}
-            className="absolute inset-0 blur-[100px] opacity-0 group-hover:opacity-10 transition-opacity duration-1000 -z-10" 
+            className="absolute inset-0 blur-[100px] opacity-0 group-hover:opacity-[0.07] transition-opacity duration-1000 -z-10" 
           />
         </div>
       </div>

@@ -1,22 +1,33 @@
 'use client'
 
 import { motion, AnimatePresence } from 'framer-motion'
-import { MessageSquare, Send, Zap } from 'lucide-react'
+import { Zap } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
 export default function ContactFloatingButton() {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.pageYOffset > 800) {
-        setIsVisible(true)
-      } else {
-        setIsVisible(false)
-      }
+    const handleScroll = () => {
+      const scrollY = window.scrollY
+      const windowHeight = window.innerHeight
+      const documentHeight = document.documentElement.scrollHeight
+      
+      const contactSection = document.getElementById('contact')
+      const contactTop = contactSection?.offsetTop || documentHeight
+      
+      // Show after scrolling 800px, but hide as soon as we reach the contact form
+      // We subtract a buffer (100px) to hide it slightly before the button is reached
+      const shouldShow = scrollY > 800 && (scrollY + windowHeight) < (contactTop + 100)
+      
+      setIsVisible(shouldShow)
     }
-    window.addEventListener('scroll', toggleVisibility)
-    return () => window.removeEventListener('scroll', toggleVisibility)
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    // Initial check
+    handleScroll()
+    
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (

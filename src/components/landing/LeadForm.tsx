@@ -88,9 +88,11 @@ export default function LeadForm() {
               <Shield className="w-3 h-3" /> Secure Inquiry
             </div>
             
-            <h2 className="text-6xl md:text-8xl font-black text-white tracking-tighter leading-[0.85] uppercase italic">
+            <h2 className="text-6xl md:text-8xl font-black text-white tracking-tighter leading-[0.85] uppercase italic overflow-visible text-center lg:text-left">
               Ready to <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-800 to-zinc-500">Transform?</span>
+              <span className="inline-block lg:pr-12">
+                <span className="text-zinc-700">Transform?</span>
+              </span>
             </h2>
             
             <p className="text-xl md:text-2xl text-zinc-400 md:text-zinc-500 font-medium leading-tight max-w-md">
@@ -112,10 +114,10 @@ export default function LeadForm() {
           {/* Right Side: The Form */}
           <div className="relative">
             <div className="glass p-1.5 rounded-[40px] border-white/5 bg-zinc-950/20 shadow-3xl overflow-hidden group">
-              <form onSubmit={handleSubmit} className="p-8 md:p-12 space-y-8 relative z-10">
+              <form onSubmit={handleSubmit} className="p-8 md:p-12 space-y-8 relative z-10 flex flex-col items-center lg:items-stretch">
                 
                 {/* Inputs */}
-                <div className="space-y-6">
+                <div className="space-y-6 w-full text-center lg:text-left">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label className="text-[10px] font-black text-zinc-600 uppercase tracking-widest ml-1">Full Name</label>
@@ -124,7 +126,7 @@ export default function LeadForm() {
                         type="text"
                         value={formData.name}
                         onChange={(e) => setFormData({...formData, name: e.target.value})}
-                        className="w-full bg-black/40 border border-white/5 rounded-2xl px-6 py-4 text-white focus:border-violet-500/50 outline-none transition-all placeholder:text-zinc-800"
+                        className="w-full bg-black/40 border border-white/5 rounded-2xl px-6 py-4 text-white focus:border-violet-500/50 outline-none transition-all placeholder:text-zinc-800 text-center lg:text-left"
                         placeholder="John Doe"
                       />
                     </div>
@@ -135,7 +137,7 @@ export default function LeadForm() {
                         type="email"
                         value={formData.email}
                         onChange={(e) => setFormData({...formData, email: e.target.value})}
-                        className="w-full bg-black/40 border border-white/5 rounded-2xl px-6 py-4 text-white focus:border-violet-500/50 outline-none transition-all placeholder:text-zinc-800"
+                        className="w-full bg-black/40 border border-white/5 rounded-2xl px-6 py-4 text-white focus:border-violet-500/50 outline-none transition-all placeholder:text-zinc-800 text-center lg:text-left"
                         placeholder="john@company.com"
                       />
                     </div>
@@ -167,7 +169,7 @@ export default function LeadForm() {
                       required
                       value={formData.message}
                       onChange={(e) => setFormData({...formData, message: e.target.value})}
-                      className="w-full bg-black/40 border border-white/5 rounded-2xl p-6 text-white focus:border-violet-500/50 outline-none h-40 transition-all placeholder:text-zinc-800 resize-none"
+                      className="w-full bg-black/40 border border-white/5 rounded-2xl p-6 text-white focus:border-violet-500/50 outline-none h-40 transition-all placeholder:text-zinc-800 resize-none text-center lg:text-left"
                       placeholder="Tell me about your project goals..."
                     />
                   </div>
