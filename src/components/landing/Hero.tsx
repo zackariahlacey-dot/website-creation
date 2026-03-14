@@ -32,7 +32,7 @@ export default function Hero({ city }: { city: string }) {
   }, [springX, springY])
 
   return (
-    <section ref={containerRef} className="relative min-h-[110vh] flex items-center justify-center bg-black overflow-hidden pt-12 md:pt-20 cursor-default">
+    <section ref={containerRef} className="relative min-h-screen lg:min-h-[110vh] flex items-center justify-center bg-black overflow-hidden pt-0 md:pt-20 cursor-default">
       {/* Immersive Background Engine */}
       <div className="absolute inset-0 z-0">
         {/* Mouse-Follower Glow - Reduced for mobile */}
@@ -93,7 +93,7 @@ export default function Hero({ city }: { city: string }) {
               <div className="w-6 h-6 rounded-full bg-amber-500 border-2 border-black" />
             </div>
             <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.4em] group-hover:text-white transition-colors">
-              High-performance web development for {city}
+              Premier Web Design & SEO for {city}
             </span>
           </motion.div>
 
