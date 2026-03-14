@@ -7,6 +7,7 @@ import PortalShowcase from "@/components/landing/PortalShowcase";
 import LeadForm from "@/components/landing/LeadForm";
 import Footer from "@/components/landing/Footer";
 import CyberWebBackground from "@/components/landing/CyberWebBackground";
+import ContactFloatingButton from "@/components/landing/ContactFloatingButton";
 import { headers } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
 
@@ -30,6 +31,7 @@ export default async function Home() {
         <LeadForm />
       </main>
       <Footer />
+      <ContactFloatingButton />
     </div>
   );
 }

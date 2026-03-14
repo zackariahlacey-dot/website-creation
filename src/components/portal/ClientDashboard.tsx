@@ -48,21 +48,20 @@ export function ClientDashboard({
             </div>
           </header>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12">
             {/* Main Feed */}
-            <div className="lg:col-span-8 space-y-16">
+            <div className="lg:col-span-8 space-y-12 md:y-16">
               
               {/* Build Lifecycle */}
-              <section className="glass p-10 rounded-[48px] border-white/5 relative overflow-hidden group">
+              <section className="glass p-6 md:p-10 rounded-[32px] md:rounded-[48px] border-white/5 relative overflow-hidden group">
                 <div className="absolute inset-0 hud-grid opacity-5" />
-                <div className="flex justify-between items-center mb-12 relative z-10">
-                  <h3 className="text-xs font-black text-zinc-500 uppercase tracking-[0.3em] flex items-center gap-2">
+                <div className="flex justify-between items-center mb-10 relative z-10">
+                  <h3 className="text-[10px] font-black text-zinc-500 uppercase tracking-[0.3em] flex items-center gap-2">
                     <Milestone className="w-3 h-3 text-violet-500" /> Build Lifecycle
                   </h3>
-                  <span className="text-[8px] font-mono text-zinc-700">V_ARCH_v4.0</span>
                 </div>
                 
-                <div className="relative pt-4 pb-8 px-4">
+                <div className="relative pt-2 pb-6 px-2 md:px-4">
                   <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-zinc-900 -translate-y-1/2" />
                   <div className="flex justify-between relative z-10">
                     {['Strategy', 'Design', 'Build', 'Launch'].map((step, i) => {
@@ -72,14 +71,14 @@ export function ClientDashboard({
                       const isPast = currentIdx > i
 
                       return (
-                        <div key={step} className="flex flex-col items-center gap-6">
-                          <div className={`w-6 h-6 rounded-full border-2 transition-all duration-1000 flex items-center justify-center ${
-                            isActive ? 'bg-violet-500 border-violet-500 shadow-[0_0_30px_rgba(139,92,246,0.6)] scale-125' : 
+                        <div key={step} className="flex flex-col items-center gap-4">
+                          <div className={`w-5 h-5 md:w-6 md:h-6 rounded-full border-2 transition-all duration-1000 flex items-center justify-center ${
+                            isActive ? 'bg-violet-500 border-violet-500 shadow-[0_0_30px_rgba(139,92,246,0.6)] scale-110' : 
                             isPast ? 'bg-zinc-800 border-zinc-800' : 'bg-black border-zinc-900'
                           }`}>
-                            {isPast && <CheckCircle2 className="w-3 h-3 text-zinc-400" />}
+                            {isPast && <CheckCircle2 className="w-2.5 h-2.5 text-zinc-400" />}
                           </div>
-                          <span className={`text-[10px] font-black uppercase tracking-widest ${
+                          <span className={`text-[8px] md:text-[10px] font-black uppercase tracking-widest ${
                             isActive ? 'text-white' : 'text-zinc-700'
                           }`}>{step}</span>
                         </div>

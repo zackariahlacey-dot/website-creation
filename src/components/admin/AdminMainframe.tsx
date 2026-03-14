@@ -33,18 +33,18 @@ export function AdminMainframe({ initialData }: { initialData: any }) {
           <h1 className="text-5xl font-bold text-white tracking-tighter italic">Command Center</h1>
         </div>
 
-        {/* Node Switcher */}
-        <nav className="flex gap-2 p-1.5 bg-zinc-950 border border-white/5 rounded-2xl backdrop-blur-xl">
+        {/* Node Switcher - Responsive Wrap */}
+        <nav className="flex flex-wrap gap-2 p-1.5 bg-zinc-950 border border-white/5 rounded-2xl backdrop-blur-xl w-full md:w-auto">
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => setActiveNode(item.id as AdminNode)}
-              className={`px-6 py-3 rounded-xl transition-all duration-500 flex items-center gap-3 group relative ${
+              className={`flex-1 md:flex-none px-4 md:px-6 py-3 rounded-xl transition-all duration-500 flex items-center justify-center md:justify-start gap-3 group relative ${
                 activeNode === item.id ? 'bg-white/5 text-white' : 'text-zinc-600 hover:text-zinc-400'
               }`}
             >
-              <item.icon className={`w-4 h-4 transition-colors ${activeNode === item.id ? 'text-violet-400' : 'group-hover:text-zinc-400'}`} />
-              <span className="text-[10px] font-black uppercase tracking-widest">{item.label}</span>
+              <item.icon className={`w-3.5 h-3.5 md:w-4 md:h-4 transition-colors ${activeNode === item.id ? 'text-violet-400' : 'group-hover:text-zinc-400'}`} />
+              <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest whitespace-nowrap">{item.label}</span>
               {item.count !== null && item.count > 0 && (
                 <span className={`px-1.5 py-0.5 rounded-md text-[8px] font-black border ${
                   activeNode === item.id ? 'bg-violet-500 border-violet-400 text-white' : 'bg-zinc-900 border-zinc-800 text-zinc-500'

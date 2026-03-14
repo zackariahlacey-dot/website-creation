@@ -8,9 +8,9 @@ export default function Hero({ city }: { city: string }) {
   const containerRef = useRef<HTMLElement>(null)
   const { scrollY } = useScroll()
   
-  // Parallax transforms
+  // Parallax transforms - Calibrated for mobile persistence
   const y1 = useTransform(scrollY, [0, 800], [0, 300])
-  const opacity = useTransform(scrollY, [200, 600], [1, 0])
+  const opacity = useTransform(scrollY, [0, 400, 800], [1, 1, 0])
   
   // Mouse tracking for the "Refractive" feel
   const [mousePos, setMouseState] = useState({ x: 0, y: 0 })
@@ -93,16 +93,16 @@ export default function Hero({ city }: { city: string }) {
               <div className="w-6 h-6 rounded-full bg-amber-500 border-2 border-black" />
             </div>
             <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.4em] group-hover:text-white transition-colors">
-              Building high-end websites for Vermont
+              Architecting premium digital assets for {city}
             </span>
           </motion.div>
 
-          <h1 className="text-7xl md:text-[140px] font-black tracking-tighter text-white leading-[0.8] select-none italic perspective-1000">
+          <h1 className="text-5xl md:text-[140px] font-black tracking-tighter text-white leading-[0.8] select-none italic perspective-1000">
             <motion.span 
               initial={{ opacity: 0, y: 60 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-              className="block mb-4"
+              className="block mb-2 md:mb-4"
             >
               WE BUILD
             </motion.span>
@@ -113,7 +113,7 @@ export default function Hero({ city }: { city: string }) {
               className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-rose-300 via-amber-200 to-white drop-shadow-[0_0_50px_rgba(139,92,246,0.4)] animate-shimmer"
               style={{ backgroundSize: '200% 100%' }}
             >
-              RESULTS.
+              SUCCESS.
             </motion.span>
           </h1>
           
@@ -121,21 +121,21 @@ export default function Hero({ city }: { city: string }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 1.2 }}
-            className="flex flex-col md:flex-row items-start md:items-center gap-10 md:gap-20 pt-6"
+            className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-20 pt-2 md:pt-6"
           >
-            <p className="max-w-md text-2xl text-zinc-500 font-medium leading-[1.3] tracking-tight">
-              Premium architecture for leaders. <br />
+            <p className="max-w-md text-lg md:text-2xl text-zinc-500 font-medium leading-[1.3] tracking-tight">
+              Sophisticated web architecture. <br />
               <span className="text-white">Pay only when your site is live.</span>
             </p>
             
-            <div className="space-y-5">
-              <div className="flex items-center gap-4 text-xs font-black text-zinc-400 uppercase tracking-[0.2em]">
+            <div className="space-y-3 md:space-y-5">
+              <div className="flex items-center gap-4 text-[10px] md:text-xs font-black text-zinc-400 uppercase tracking-[0.2em]">
                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]" /> 
-                Zero Down Risk
+                Pay on Results
               </div>
-              <div className="flex items-center gap-4 text-xs font-black text-zinc-400 uppercase tracking-[0.2em]">
+              <div className="flex items-center gap-4 text-[10px] md:text-xs font-black text-zinc-400 uppercase tracking-[0.2em]">
                 <div className="w-1.5 h-1.5 rounded-full bg-violet-500 shadow-[0_0_10px_rgba(139,92,246,0.5)]" /> 
-                Elite Support
+                Concierge Support
               </div>
             </div>
           </motion.div>
@@ -144,13 +144,13 @@ export default function Hero({ city }: { city: string }) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 1.2 }}
-            className="flex flex-col sm:flex-row items-center gap-8 pt-10"
+            className="flex flex-col sm:flex-row items-center gap-6 md:gap-8 pt-6 md:pt-10"
           >
             <motion.a 
               href="#contact" 
               whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(255,255,255,0.15)" }}
               whileTap={{ scale: 0.95 }}
-              className="group px-12 py-7 bg-white text-black font-black rounded-[24px] transition-all flex items-center gap-4 text-lg shadow-2xl"
+              className="group w-full sm:w-auto px-10 py-5 md:px-12 md:py-7 bg-white text-black font-black rounded-[20px] md:rounded-[24px] transition-all flex items-center justify-center gap-4 text-base md:text-lg shadow-2xl"
             >
               INITIALIZE BUILD
               <ChevronRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-500" />
