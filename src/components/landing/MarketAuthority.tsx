@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
-import { TrendingUp, Target, Zap, Activity, ShieldAlert, Cpu, Crosshair, Search, Loader2 } from 'lucide-react'
+import { TrendingUp, Target, Zap, Activity, ShieldAlert, Cpu, Crosshair, Search, Loader2, CheckCircle2 } from 'lucide-react'
 import { useRef, useState, useEffect } from 'react'
 
 const legacyThreats = [
