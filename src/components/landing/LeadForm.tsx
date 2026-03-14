@@ -78,12 +78,12 @@ export default function LeadForm() {
   }
 
   return (
-    <section id="contact" className="py-32 md:py-64 px-6 relative overflow-hidden">
+    <section id="contact" className="py-20 md:py-64 px-6 relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
           
           {/* Left Side: Value Prop */}
-          <div className="space-y-12 pt-4">
+          <div className="space-y-12 pt-4 text-center lg:text-left flex flex-col items-center lg:items-start">
             <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-[10px] font-black uppercase tracking-[0.4em]">
               <Shield className="w-3 h-3" /> Secure Inquiry
             </div>
@@ -93,11 +93,11 @@ export default function LeadForm() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-800 to-zinc-500">Transform?</span>
             </h2>
             
-            <p className="text-xl md:text-2xl text-zinc-500 font-medium leading-tight max-w-md">
+            <p className="text-xl md:text-2xl text-zinc-400 md:text-zinc-500 font-medium leading-tight max-w-md">
               Fill out the form to start your high-performance web project. No deposits. Pay only when your site is live.
             </p>
 
-            <div className="space-y-6 pt-4">
+            <div className="space-y-6 pt-4 flex flex-col items-center lg:items-start">
               <div className="flex items-center gap-4 text-zinc-400 font-bold text-xs uppercase tracking-widest">
                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_10px_#10b981]" /> 
                 Direct Architect Communication
@@ -143,7 +143,7 @@ export default function LeadForm() {
 
                   <div className="space-y-2">
                     <label className="text-[10px] font-black text-zinc-600 uppercase tracking-widest ml-1">Industry</label>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
                       {industries.map((ind) => (
                         <button
                           key={ind}

@@ -44,14 +44,14 @@ const services = [
 
 export default function BentoServices() {
   return (
-    <section id="services" className="py-24 md:py-64 px-4 md:px-8 bg-black relative overflow-hidden">
+    <section id="services" className="py-20 md:py-64 px-4 md:px-8 bg-black relative overflow-hidden">
       {/* Subtle Background Text */}
-      <div className="absolute top-20 md:top-40 left-8 text-[12vw] font-black text-zinc-950 leading-none select-none pointer-events-none">
+      <div className="absolute top-20 md:top-40 left-0 right-0 md:left-8 text-[12vw] font-black text-zinc-950 leading-none select-none pointer-events-none text-center md:text-left">
         MODULES
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="max-w-4xl mb-16 md:mb-32 px-4">
+        <div className="max-w-4xl mb-16 md:mb-32 px-4 text-center md:text-left mx-auto md:mx-0">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -83,14 +83,14 @@ export default function BentoServices() {
               {/* The "Module Rack" Frame */}
               <div className="h-full bg-zinc-950/20 backdrop-blur-3xl p-1 rounded-[32px] md:rounded-[48px] border border-white/5 group-hover:border-violet-500/30 transition-all duration-700 relative overflow-hidden shadow-2xl">
                 
-                <div className="relative h-full p-8 md:p-14 flex flex-col justify-between hud-grid rounded-[30px] md:rounded-[46px] overflow-hidden group/card">
+                <div className="relative h-full p-8 md:p-14 flex flex-col justify-between hud-grid rounded-[30px] md:rounded-[46px] overflow-hidden group/card text-center md:text-left items-center md:items-start">
                   
                   {/* Laser Scan Line */}
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-violet-500/10 to-transparent h-1/4 w-full -translate-y-full group-hover/card:animate-scan pointer-events-none" />
 
                   {/* Header: ID and Status */}
-                  <div className="flex justify-between items-start relative z-10 mb-8 md:mb-12">
-                    <div className="flex flex-col gap-1">
+                  <div className="flex justify-between items-start relative z-10 mb-8 md:mb-12 w-full">
+                    <div className="flex flex-col gap-1 text-left">
                       <span className="text-[10px] font-black text-violet-500 tracking-widest">{service.id}</span>
                       <div className="flex items-center gap-2">
                         <Activity className="w-2.5 h-2.5 text-zinc-700 group-hover/card:text-emerald-500 transition-colors" />
@@ -105,7 +105,7 @@ export default function BentoServices() {
                   </div>
 
                   {/* Content Node */}
-                  <div className="relative z-10 space-y-6 md:space-y-8">
+                  <div className="relative z-10 space-y-6 md:space-y-8 flex flex-col items-center md:items-start">
                     <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl md:rounded-[28px] bg-white/5 flex items-center justify-center border border-white/5 group-hover/card:border-violet-500/40 group-hover/card:bg-violet-500/5 transition-all duration-700 group/icon">
                       <service.icon className="w-8 h-8 md:w-10 md:h-10 text-zinc-600 group-hover/card:text-violet-400 group-hover/card:scale-110 transition-all duration-700" />
                     </div>
@@ -115,14 +115,14 @@ export default function BentoServices() {
                       <h3 className="text-2xl md:text-4xl font-bold text-white mb-4 md:mb-6 tracking-tighter leading-none group-hover/card:text-white transition-colors">
                         {service.title}
                       </h3>
-                      <p className="text-zinc-500 text-sm md:text-lg leading-relaxed max-w-sm group-hover/card:text-zinc-400 transition-colors duration-700">
+                      <p className="text-zinc-400 md:text-zinc-500 text-sm md:text-lg leading-relaxed max-w-sm group-hover/card:text-zinc-400 transition-colors duration-700">
                         {service.description}
                       </p>
                     </div>
                   </div>
 
                   {/* Footer Readout */}
-                  <div className="mt-12 md:mt-16 pt-6 md:pt-8 border-t border-white/5 flex justify-between items-end relative z-10">
+                  <div className="mt-12 md:mt-16 pt-6 md:pt-8 border-t border-white/5 flex justify-between items-end relative z-10 w-full">
                     <div className="space-y-2">
                       <div className="flex gap-1">
                         {[1, 2, 3, 4, 5].map((b) => (

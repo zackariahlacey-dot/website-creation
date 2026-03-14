@@ -23,7 +23,7 @@ export default function MarketAuthority() {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
 
   return (
-    <section ref={containerRef} className="py-32 md:py-64 bg-black relative overflow-hidden px-6 md:px-8">
+    <section ref={containerRef} className="py-20 md:py-64 bg-black relative overflow-hidden px-6 md:px-8">
       {/* BACKGROUND: THE MAINFRAME RADAR */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
         <motion.div 
@@ -40,7 +40,7 @@ export default function MarketAuthority() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           
           {/* LEFT COLUMN: THE THREAT ANALYSIS */}
-          <div className="space-y-12">
+          <div className="space-y-12 text-center lg:text-left flex flex-col items-center lg:items-start">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -54,9 +54,9 @@ export default function MarketAuthority() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-800 to-zinc-500 group-hover:from-violet-500 group-hover:to-white transition-all duration-1000">Market.</span>
             </h2>
 
-            <div className="space-y-8">
+            <div className="space-y-8 flex flex-col items-center lg:items-start w-full">
               {/* THE SCANNER HUD (Mobile Exclusive Creativity) */}
-              <div className="space-y-4 max-w-md">
+              <div className="space-y-4 max-w-md w-full text-left">
                 {legacyThreats.map((threat, i) => (
                   <ThreatNode key={threat.id} threat={threat} index={i} />
                 ))}
@@ -65,14 +65,28 @@ export default function MarketAuthority() {
               <p className="text-xl md:text-2xl text-zinc-500 leading-tight font-medium max-w-lg">
                 Traditional websites are static liabilities. We engineer <span className="text-white">Active Digital Assets</span> that capture market share autonomously.
               </p>
+
+              {/* Mobile Exclusive CTA */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="pt-4 lg:hidden"
+              >
+                <a 
+                  href="#contact" 
+                  className="inline-flex items-center gap-4 px-10 py-5 bg-white text-black font-black text-[10px] uppercase tracking-[0.4em] rounded-2xl hover:bg-zinc-200 transition-all shadow-[0_20px_50px_rgba(255,255,255,0.1)] group"
+                >
+                  GET A FREE AUDIT <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </motion.div>
             </div>
           </div>
 
-          {/* RIGHT COLUMN: THE AUTHORITY CONSOLE */}
+          {/* RIGHT COLUMN: THE AUTHORITY CONSOLE - Hidden on Mobile */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            className="relative"
+            className="relative hidden lg:block"
           >
             <div className="glass p-1.5 rounded-[60px] border-white/10 shadow-3xl bg-zinc-950/50 backdrop-blur-3xl overflow-hidden relative group">
               <div className="bg-black/40 rounded-[58px] p-10 md:p-16 relative overflow-hidden hud-grid">

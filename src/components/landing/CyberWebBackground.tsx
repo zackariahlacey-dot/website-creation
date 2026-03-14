@@ -21,9 +21,10 @@ export default function CyberWebBackground() {
     canvas.style.width = `${window.innerWidth}px`
     canvas.style.height = `${window.innerHeight}px`
 
+    const isMobile = window.innerWidth < 768
     const particles: Particle[] = []
-    const particleCount = 60
-    const connectionDistance = 150
+    const particleCount = isMobile ? 30 : 60
+    const connectionDistance = isMobile ? 100 : 150
 
     class Particle {
       x: number

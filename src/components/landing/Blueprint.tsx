@@ -57,11 +57,11 @@ export default function Blueprint() {
   })
 
   return (
-    <section id="process" ref={containerRef} className="py-32 md:py-64 bg-black relative overflow-hidden">
+    <section id="process" ref={containerRef} className="py-20 md:py-64 bg-black relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         
         {/* Technical Header */}
-        <div className="mb-24 md:mb-40 text-center md:text-left">
+        <div className="mb-16 md:mb-40 text-center md:text-left">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -91,7 +91,7 @@ export default function Blueprint() {
             </motion.div>
           </div>
 
-          <div className="space-y-32 md:space-y-64 relative z-10">
+          <div className="space-y-20 md:space-y-64 relative z-10">
             {steps.map((step, i) => (
               <StepNode key={step.id} step={step} index={i} />
             ))}
@@ -103,7 +103,7 @@ export default function Blueprint() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-40 md:mt-64 max-w-4xl mx-auto"
+          className="mt-24 md:mt-64 max-w-4xl mx-auto"
         >
           <div className="glass p-10 md:p-20 rounded-[48px] md:rounded-[60px] border border-emerald-500/20 bg-emerald-500/[0.01] text-center relative overflow-hidden group">
             <div className="absolute inset-0 hud-grid opacity-10" />

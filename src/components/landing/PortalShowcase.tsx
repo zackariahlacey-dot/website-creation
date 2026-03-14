@@ -5,7 +5,7 @@ import { Layout, Shield, Cloud, MessageSquare, ChevronRight } from 'lucide-react
 
 export default function PortalShowcase({ isLoggedIn }: { isLoggedIn: boolean }) {
   return (
-    <section className="py-64 px-8 bg-black relative overflow-hidden">
+    <section className="py-20 md:py-64 px-8 bg-black relative overflow-hidden">
       {/* Background HUD Decorative Element */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[600px] bg-violet-600/5 blur-[160px] rounded-full pointer-events-none" />
 
@@ -14,7 +14,7 @@ export default function PortalShowcase({ isLoggedIn }: { isLoggedIn: boolean }) 
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="order-2 lg:order-1"
+          className="order-2 lg:order-1 text-center lg:text-left flex flex-col items-center lg:items-start"
         >
           <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-[10px] font-bold uppercase tracking-[0.3em] mb-10">
             <Shield className="w-3 h-3" /> Exclusive Access
@@ -27,13 +27,13 @@ export default function PortalShowcase({ isLoggedIn }: { isLoggedIn: boolean }) 
             Stop wondering where your project stands. <span className="text-white">The Vizulux Portal</span> is your high-fidelity command center for every phase of the build.
           </p>
           
-          <div className="space-y-8 pt-4">
+          <div className="space-y-8 pt-4 w-full text-center md:text-left flex flex-col items-center md:items-start">
             {[
               { icon: Layout, title: "Real-Time Tracking", desc: "Watch your website's engine come to life with a live project timeline." },
               { icon: Cloud, title: "Secure Asset Vault", desc: "Drag and drop logos, content, and feedback directly into our secure cloud." },
               { icon: MessageSquare, title: "Direct Architect Feed", desc: "Instant updates and technical notes directly from my terminal to yours." }
             ].map((item, i) => (
-              <div key={i} className="flex gap-6 group">
+              <div key={i} className="flex flex-col md:flex-row items-center md:items-start gap-6 group">
                 <div className="w-12 h-12 rounded-2xl bg-zinc-950 border border-white/5 flex items-center justify-center group-hover:border-violet-500/50 transition-colors shrink-0">
                   <item.icon className="text-violet-400 w-5 h-5" />
                 </div>

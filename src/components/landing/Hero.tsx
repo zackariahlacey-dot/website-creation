@@ -32,15 +32,15 @@ export default function Hero({ city }: { city: string }) {
   }, [springX, springY])
 
   return (
-    <section ref={containerRef} className="relative min-h-[115vh] flex items-center justify-center bg-black overflow-hidden pt-20 cursor-default">
+    <section ref={containerRef} className="relative min-h-[110vh] flex items-center justify-center bg-black overflow-hidden pt-12 md:pt-20 cursor-default">
       {/* Immersive Background Engine */}
       <div className="absolute inset-0 z-0">
-        {/* Mouse-Follower Glow */}
+        {/* Mouse-Follower Glow - Reduced for mobile */}
         <motion.div 
-          className="absolute w-[800px] h-[800px] bg-violet-600/10 rounded-full blur-[160px] pointer-events-none"
+          className="absolute w-[400px] h-[400px] md:w-[800px] md:h-[800px] bg-violet-600/10 rounded-full blur-[120px] md:blur-[160px] pointer-events-none"
           style={{ 
-            left: mousePos.x - 400, 
-            top: mousePos.y - 400,
+            left: mousePos.x - 200, 
+            top: mousePos.y - 200,
             transition: 'left 0.1s ease-out, top 0.1s ease-out'
           }}
         />
@@ -78,9 +78,9 @@ export default function Hero({ city }: { city: string }) {
 
       <motion.div 
         style={{ y: y1, opacity }}
-        className="relative z-20 w-full max-w-7xl px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center"
+        className="relative z-20 w-full max-w-7xl px-8 flex flex-col items-center lg:grid lg:grid-cols-12 gap-16"
       >
-        <div className="lg:col-span-8 space-y-12">
+        <div className="lg:col-span-8 space-y-12 text-center lg:text-left flex flex-col items-center lg:items-start">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -121,14 +121,14 @@ export default function Hero({ city }: { city: string }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 1.2 }}
-            className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-20 pt-2 md:pt-6"
+            className="flex flex-col md:flex-row items-center lg:items-start gap-6 md:gap-20 pt-2 md:pt-6"
           >
             <p className="max-w-md text-lg md:text-2xl text-zinc-500 font-medium leading-[1.3] tracking-tight">
               Sophisticated web architecture. <br />
               <span className="text-white">Pay only when your site is live.</span>
             </p>
             
-            <div className="space-y-3 md:space-y-5">
+            <div className="space-y-3 md:space-y-5 flex flex-col items-center lg:items-start">
               <div className="flex items-center gap-4 text-[10px] md:text-xs font-black text-zinc-400 uppercase tracking-[0.2em]">
                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]" /> 
                 Pay on Results

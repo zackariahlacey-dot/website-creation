@@ -66,7 +66,7 @@ export default function Footer() {
   )
 
   return (
-    <footer className="relative bg-black pt-32 pb-12 px-8 overflow-hidden border-t border-white/5">
+    <footer className="relative bg-black pt-20 md:pt-32 pb-12 px-8 overflow-hidden border-t border-white/5">
       {/* Background Decorative Grid Floor (Faded) */}
       <div 
         className="absolute bottom-0 left-0 right-0 h-[40vh] opacity-[0.03] pointer-events-none"
@@ -79,10 +79,10 @@ export default function Footer() {
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24 text-center md:text-left items-center md:items-start">
           
           {/* Brand Column */}
-          <div className="space-y-8">
+          <div className="space-y-8 flex flex-col items-center md:items-start">
             <Image 
               src="/vizulux.png" 
               alt="VIZULUX" 
@@ -115,7 +115,7 @@ export default function Footer() {
           {/* Engine Specs Column */}
           <div className="space-y-8">
             <h4 className="text-[10px] font-black text-white uppercase tracking-[0.4em]">Engine_Specs</h4>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 max-w-[200px] mx-auto md:mx-0">
               {[
                 { label: 'Core', val: 'Next.js 16' },
                 { label: 'Logic', val: 'TypeScript' },
@@ -133,9 +133,9 @@ export default function Footer() {
           </div>
 
           {/* Contact Column */}
-          <div className="space-y-8 text-right md:text-left">
+          <div className="space-y-8">
             <h4 className="text-[10px] font-black text-white uppercase tracking-[0.4em]">Contact_Nodes</h4>
-            <div className="space-y-6">
+            <div className="space-y-6 flex flex-col items-center md:items-start">
               <a href="mailto:zack@vizulux.com" className="flex items-center gap-4 text-zinc-500 hover:text-white transition-colors group">
                 <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/5 group-hover:border-violet-500/30">
                   <Mail className="w-3.5 h-3.5" />
