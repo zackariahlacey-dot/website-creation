@@ -1,14 +1,14 @@
 'use client'
 
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
-import { TrendingUp, Target, Zap, Activity, ShieldAlert, Cpu, Crosshair, Search, Loader2, CheckCircle2 } from 'lucide-react'
+import { TrendingUp, Target, Zap, Activity, ShieldAlert, Cpu, Crosshair, Search, Loader2, CheckCircle2, ChevronRight } from 'lucide-react'
 import { useRef, useState, useEffect } from 'react'
 
 const legacyThreats = [
-  { id: "ERR_01", label: "Legacy_Load_Speeds", status: "CRITICAL", fix: "Engine_Ignited" },
-  { id: "ERR_02", label: "Static_SEO_Nodes", status: "FAILING", fix: "GEO_Active" },
-  { id: "ERR_03", label: "Mobile_Friction", status: "HIGH_RISK", fix: "Fluid_Sync" },
-  { id: "ERR_04", label: "Lead_Leakage", status: "UNSTABLE", fix: "Capture_Max" }
+  { id: "ERR_01", label: "Page Load Speed", status: "CRITICAL", fix: "Optimized" },
+  { id: "ERR_02", label: "Google Ranking", status: "POOR", fix: "Optimized" },
+  { id: "ERR_03", label: "Mobile Experience", status: "HIGH RISK", fix: "Optimized" },
+  { id: "ERR_04", label: "Lead Conversion", status: "WEAK", fix: "Optimized" }
 ]
 
 export default function MarketAuthority() {
@@ -46,7 +46,7 @@ export default function MarketAuthority() {
               whileInView={{ opacity: 1, x: 0 }}
               className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-[8px] md:text-[10px] font-black uppercase tracking-[0.4em]"
             >
-              <Target className="w-3 h-3" /> Strategic Analysis: Market Gaps
+              <Target className="w-3 h-3" /> LOCAL SEO AUDIT
             </motion.div>
 
             <h2 className="text-5xl md:text-9xl font-black text-white tracking-tighter leading-[0.8] italic uppercase group">
@@ -123,10 +123,9 @@ export default function MarketAuthority() {
                   ))}
                 </div>
 
-                {/* Technical Metadata Bar */}
-                <div className="mt-12 pt-8 border-t border-white/5 flex justify-between items-end">
-                  <div className="space-y-2">
-                    <p className="text-[10px] font-black text-white tracking-widest uppercase">Targeting_Market_Share</p>
+                <div className="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+                  <div className="space-y-2 w-full md:w-auto">
+                    <p className="text-[10px] font-black text-white tracking-widest uppercase">GROWTH POTENTIAL</p>
                     <div className="flex gap-1">
                       {[1,2,3,4,5,6].map(b => (
                         <div key={b} className="w-4 h-1 bg-violet-500/20 rounded-full overflow-hidden">
@@ -139,7 +138,17 @@ export default function MarketAuthority() {
                       ))}
                     </div>
                   </div>
-                  <div className="text-[8px] font-mono text-zinc-700 font-bold uppercase text-right space-y-1">
+                  
+                  <motion.a 
+                    href="#contact"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="inline-flex items-center gap-4 px-8 py-4 bg-white text-black font-black text-[10px] uppercase tracking-[0.4em] rounded-xl hover:bg-zinc-200 transition-all shadow-[0_20px_50px_rgba(255,255,255,0.1)] group whitespace-nowrap"
+                  >
+                    GET A FREE AUDIT <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </motion.a>
+
+                  <div className="text-[8px] font-mono text-zinc-700 font-bold uppercase text-right space-y-1 hidden md:block">
                     <div>[ CACHE: OPTIMIZED ]</div>
                     <div>[ SEO_NODE: VERMONT_PRIMARY ]</div>
                   </div>

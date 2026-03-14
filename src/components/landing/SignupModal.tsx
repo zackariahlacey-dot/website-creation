@@ -74,7 +74,7 @@ export default function SignupModal({
               <div className="space-y-2">
                 <h3 className="text-3xl font-bold text-white tracking-tight">Secure Your Portal</h3>
                 <p className="text-zinc-500 text-sm tracking-wide">
-                  Create a password to access your <span className="text-white">Digital HQ</span> and track your build in real-time.
+                  Create a password to access your <span className="text-white">Client Portal</span> and track your build in real-time.
                 </p>
               </div>
 
@@ -109,7 +109,7 @@ export default function SignupModal({
                   disabled={loading}
                   className="w-full py-5 bg-white text-black font-black rounded-2xl hover:bg-zinc-200 transition-all flex items-center justify-center gap-3 disabled:opacity-50 tracking-widest text-xs"
                 >
-                  {loading ? 'INITIALIZING...' : 'ACTIVATE DIGITAL HQ'}
+                  {loading ? 'CREATING ACCOUNT...' : 'CREATE MY ACCOUNT'}
                   <ChevronRight className="w-4 h-4" />
                 </button>
               </form>

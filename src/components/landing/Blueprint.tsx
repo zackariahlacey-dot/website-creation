@@ -11,7 +11,7 @@ const steps = [
     description: "Deep competitor analysis and GEO-targeting calibration to win Vermont market share.",
     icon: Search,
     color: "violet",
-    telemetry: "DATA_MINING_v1.2",
+    telemetry: "MARKET_RESEARCH",
     hex: "#8b5cf6"
   },
   {
@@ -20,7 +20,7 @@ const steps = [
     description: "Architecting high-fidelity visual homes that command premium authority and trust.",
     icon: PenTool,
     color: "rose",
-    telemetry: "UI_ARCHITECT_v3.0",
+    telemetry: "UI_DESIGN",
     hex: "#fb7185"
   },
   {
@@ -29,7 +29,7 @@ const steps = [
     description: "Engineering speed-optimized digital engines using the latest Next.js 16 frameworks.",
     icon: Code2,
     color: "cyan",
-    telemetry: "ENGINE_DEPLOY_v2.1",
+    telemetry: "CODE_OPTIMIZATION",
     hex: "#22d3ee"
   },
   {
@@ -38,7 +38,7 @@ const steps = [
     description: "Managing the hosting, security, and SEO nodes so you can focus on scaling operations.",
     icon: Rocket,
     color: "emerald",
-    telemetry: "REVENUE_SCALE_v4.4",
+    telemetry: "SEO_GROWTH",
     hex: "#10b981"
   }
 ]
@@ -70,7 +70,7 @@ export default function Blueprint() {
             <Cpu className="w-3 h-3" /> Our Approach
           </motion.div>
           <h2 className="text-5xl md:text-8xl font-bold text-white tracking-tighter italic leading-[0.85] uppercase">
-            The Success <br /><span className="text-zinc-800">Blueprint.</span>
+            OUR DESIGN <br /><span className="text-zinc-800">PROCESS.</span>
           </h2>
         </div>
 
@@ -112,10 +112,10 @@ export default function Blueprint() {
                 <CheckCircle2 className="text-emerald-400 w-8 h-8" />
               </div>
               <h3 className="text-4xl md:text-6xl font-bold text-white tracking-tighter uppercase italic leading-none">
-                Zero Risk <br /><span className="text-zinc-700">Architecture.</span>
+                RISK-FREE <br /><span className="text-zinc-700">DEVELOPMENT.</span>
               </h3>
               <p className="text-zinc-400 text-lg md:text-xl font-medium max-w-2xl mx-auto leading-relaxed">
-                We don't take deposits. You pay only when your custom engine is <span className="text-white">fully synchronized and live.</span>
+                We don't take deposits. You pay only when your custom engine is <span className="text-white">fully launched and optimized.</span>
               </p>
             </div>
           </div>

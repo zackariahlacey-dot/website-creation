@@ -93,7 +93,7 @@ export default function Hero({ city }: { city: string }) {
               <div className="w-6 h-6 rounded-full bg-amber-500 border-2 border-black" />
             </div>
             <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.4em] group-hover:text-white transition-colors">
-              Architecting premium digital assets for {city}
+              High-performance web development for {city}
             </span>
           </motion.div>
 
@@ -152,14 +152,14 @@ export default function Hero({ city }: { city: string }) {
               whileTap={{ scale: 0.95 }}
               className="group w-full sm:w-auto px-10 py-5 md:px-12 md:py-7 bg-white text-black font-black rounded-[20px] md:rounded-[24px] transition-all flex items-center justify-center gap-4 text-base md:text-lg shadow-2xl"
             >
-              INITIALIZE BUILD
+              START YOUR PROJECT
               <ChevronRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-500" />
             </motion.a>
             <a 
               href="#process" 
               className="text-xs font-black text-zinc-600 hover:text-white transition-colors uppercase tracking-[0.4em] flex items-center gap-3 border-b border-zinc-900 pb-2"
             >
-              <MousePointer2 className="w-3 h-3" /> System Blueprint
+              <MousePointer2 className="w-3 h-3" /> OUR PROCESS
             </a>
           </motion.div>
         </div>

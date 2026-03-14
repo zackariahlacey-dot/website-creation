@@ -12,17 +12,10 @@ const LeadSchema = z.object({
   message: z.string().min(10, "Please provide more details about your vision"),
 })
 
-export async function submitLead(formData: FormData) {
+export async function submitLead(data: { name: string, email: string, industry: string, message: string }) {
   const supabase = await createClient()
 
-  const rawData = {
-    name: formData.get('name') as string,
-    email: formData.get('email') as string,
-    industry: formData.get('industry') as string,
-    message: formData.get('message') as string,
-  }
-
-  const validatedData = LeadSchema.safeParse(rawData)
+  const validatedData = LeadSchema.safeParse(data)
 
   if (!validatedData.success) {
     return { error: validatedData.error.issues[0].message }
@@ -79,24 +72,32 @@ export async function submitLead(formData: FormData) {
         'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: 'Zack Lacey | Vizulux <no-reply@vizulux.com>',
+        from: 'Zack | Vizulux <no-reply@vizulux.com>',
         to: [email],
-        subject: `Blueprint Initialized: Your vision for ${industry}`,
+        subject: `Project Initialized: Your vision for ${industry}`,
         html: vizuluxEmailWrapper(`
-          <h2 style="color: #8b5cf6; font-size: 32px; letter-spacing: -1px; margin-bottom: 20px;">BLUEPRINT INITIALIZED.</h2>
-          <p style="color: #a1a1aa; font-size: 16px; margin-bottom: 30px;">
+          <h2 style="color: #ffffff; font-size: 32px; letter-spacing: -1.5px; margin-bottom: 20px; font-weight: 900; font-style: italic; text-transform: uppercase;">A New Project <span style="color: #8b5cf6;">Begins.</span></h2>
+          <p style="color: #a1a1aa; font-size: 16px; margin-bottom: 30px; line-height: 1.6;">
             Hello ${name.split(' ')[0]},<br><br>
-            Your vision for a high-end digital engine has been successfully captured. I work directly with a limited number of clients to ensure architectural excellence.<br><br>
-            <strong>Feel free to call or text me directly at any time before I reach out via email.</strong>
+            Thank you for reaching out. Your vision for a high-performance digital presence in the <strong>${industry}</strong> industry has been successfully received.<br><br>
+            I personally review every project inquiry to ensure we can build something truly exceptional. You can expect a detailed response from me within the next 24 hours.
           </p>
-          <div style="background: #09090b; border: 1px solid #1a1a1a; padding: 30px; border-radius: 20px; text-align: center;">
-            <p style="text-transform: uppercase; font-size: 9px; font-weight: bold; letter-spacing: 3px; color: #555555; margin-bottom: 10px;">Direct Architect Line</p>
-            <p style="font-size: 28px; font-weight: bold; color: #ffffff; margin: 0;">802-585-9179</p>
+          
+          <div style="background: #09090b; border: 1px solid #1a1a1a; padding: 40px; border-radius: 24px; text-align: center; margin: 40px 0;">
+            <p style="text-transform: uppercase; font-size: 10px; font-weight: bold; letter-spacing: 4px; color: #52525b; margin-bottom: 15px;">Direct Line & Text</p>
+            <p style="font-size: 32px; font-weight: 900; color: #ffffff; margin: 0; letter-spacing: -1px;">802-585-9179</p>
+            <p style="font-size: 12px; color: #71717a; margin-top: 15px;">Feel free to reach out directly if you have any immediate questions.</p>
           </div>
-          <p style="margin-top: 30px; font-size: 12px; color: #555555;">
-            I am currently reviewing your vision. You will receive a strategic synchronization response within 24 hours.
+
+          <p style="color: #52525b; font-size: 13px; font-style: italic; margin-top: 40px;">
+            "We don't just build websites. We architect growth engines."
           </p>
-        `, 'Your Vizulux project blueprint has been initialized.'),
+          
+          <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #1a1a1a;">
+            <p style="margin: 0; color: #ffffff; font-weight: bold; font-size: 14px;">Zack Lacey</p>
+            <p style="margin: 5px 0 0 0; color: #71717a; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px;">Founder & Lead Architect, Vizulux</p>
+          </div>
+        `, `Your project blueprint for ${industry} has been initialized.`),
       }),
     })
     
