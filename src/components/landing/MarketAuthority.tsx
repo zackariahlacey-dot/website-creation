@@ -92,8 +92,14 @@ export default function MarketAuthority() {
                     <div className="absolute inset-[-10px] border border-violet-500/20 rounded-full animate-ping" />
                   </div>
 
-                  {/* Market Targets */}
-                  {[...Array(5)].map((_, i) => (
+                  {/* Market Targets - Deterministic for Hydration Stability */}
+                  {[
+                    { t: '25%', l: '30%' },
+                    { t: '65%', l: '75%' },
+                    { t: '40%', l: '60%' },
+                    { t: '70%', l: '25%' },
+                    { t: '30%', l: '80%' }
+                  ].map((pos, i) => (
                     <motion.div
                       key={i}
                       initial={{ opacity: 0 }}
@@ -107,8 +113,8 @@ export default function MarketAuthority() {
                         repeat: Infinity 
                       }}
                       style={{
-                        top: `${20 + Math.random() * 60}%`,
-                        left: `${20 + Math.random() * 60}%`
+                        top: pos.t,
+                        left: pos.l
                       }}
                       className="absolute w-4 h-4 border border-emerald-500/40 rounded-full flex items-center justify-center"
                     >
