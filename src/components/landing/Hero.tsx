@@ -93,7 +93,7 @@ export default function Hero({ city }: { city: string }) {
               <div className="w-6 h-6 rounded-full bg-amber-500 border-2 border-black" />
             </div>
             <span className="text-[9px] md:text-[11px] font-bold text-zinc-400 uppercase tracking-[0.15em] md:tracking-[0.4em] group-hover:text-white transition-colors whitespace-nowrap">
-              Premier Web Design & SEO for {city}
+              High-Performance Web Design & SEO
             </span>
           </motion.div>
 
