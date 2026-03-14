@@ -78,7 +78,7 @@ export default function Hero({ city }: { city: string }) {
 
       <motion.div 
         style={{ y: y1, opacity }}
-        className="relative z-20 w-full max-w-7xl px-8 flex flex-col items-center lg:grid lg:grid-cols-12 gap-16"
+        className="relative z-20 w-full max-w-7xl px-8 flex flex-col items-center lg:grid lg:grid-cols-12 gap-16 -mt-12 md:mt-0"
       >
         <div className="lg:col-span-8 space-y-12 text-center lg:text-left flex flex-col items-center lg:items-start">
           <motion.div
@@ -92,7 +92,7 @@ export default function Hero({ city }: { city: string }) {
               <div className="w-6 h-6 rounded-full bg-rose-500 border-2 border-black" />
               <div className="w-6 h-6 rounded-full bg-amber-500 border-2 border-black" />
             </div>
-            <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.4em] group-hover:text-white transition-colors">
+            <span className="text-[9px] md:text-[11px] font-bold text-zinc-400 uppercase tracking-[0.15em] md:tracking-[0.4em] group-hover:text-white transition-colors whitespace-nowrap">
               Premier Web Design & SEO for {city}
             </span>
           </motion.div>
