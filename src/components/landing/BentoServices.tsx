@@ -1,12 +1,13 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Stethoscope, HardHat, Building2, Search, Cpu, Activity, Database, Fingerprint } from 'lucide-react'
+import { Stethoscope, HardHat, Building2, Search, Cpu, Activity, Database, Fingerprint, ChevronRight } from 'lucide-react'
 
 const services = [
   {
     title: "Healthcare & Clinicians",
     description: "Professional, secure platforms built to win patient trust. We handle the technical side so you can focus on care.",
+    cta: "Stop Missing Patient Leads",
     icon: Stethoscope,
     id: "MOD_01",
     tag: "CLINICAL_TRUST",
@@ -16,6 +17,7 @@ const services = [
   {
     title: "Construction & Roofing",
     description: "Websites that make your phone ring. We showcase your best work and capture local leads.",
+    cta: "Win More Local Contracts",
     icon: HardHat,
     id: "MOD_02",
     tag: "LEAD_FORCE",
@@ -25,6 +27,7 @@ const services = [
   {
     title: "Real Estate & Luxury",
     description: "High-end visual portfolios that sell properties. A digital home for your most exclusive listings.",
+    cta: "Showcase Premium Assets",
     icon: Building2,
     id: "MOD_03",
     tag: "VISUAL_STK",
@@ -34,6 +37,7 @@ const services = [
   {
     title: "The SEO Growth Engine",
     description: "Advanced local SEO and AI-ready optimization. We make sure you are the first one people see in Vermont.",
+    cta: "Dominate Google Rankings",
     icon: Search,
     id: "MOD_04",
     tag: "GEO_LOCATE",
@@ -115,9 +119,19 @@ export default function BentoServices() {
                       <h3 className="text-2xl md:text-4xl font-bold text-white mb-4 md:mb-6 tracking-tighter leading-none group-hover/card:text-white transition-colors">
                         {service.title}
                       </h3>
-                      <p className="text-zinc-400 md:text-zinc-500 text-sm md:text-lg leading-relaxed max-w-sm group-hover/card:text-zinc-400 transition-colors duration-700">
+                      <p className="text-zinc-400 md:text-zinc-500 text-sm md:text-lg leading-relaxed max-w-sm group-hover/card:text-zinc-400 transition-colors duration-700 mb-8">
                         {service.description}
                       </p>
+
+                      <a 
+                        href="#contact"
+                        className="inline-flex items-center gap-2 text-[10px] font-black text-white uppercase tracking-[0.2em] group/btn"
+                      >
+                        <span className="border-b border-white/20 pb-1 group-hover/btn:border-violet-500 transition-colors">
+                          {service.cta}
+                        </span>
+                        <ChevronRight className="w-3 h-3 text-violet-500 group-hover/btn:translate-x-1 transition-transform" />
+                      </a>
                     </div>
                   </div>
 

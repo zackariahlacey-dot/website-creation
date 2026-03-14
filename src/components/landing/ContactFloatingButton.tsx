@@ -30,26 +30,17 @@ export default function ContactFloatingButton() {
         >
           <a 
             href="#contact"
-            className="group relative flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-white text-black rounded-full shadow-[0_20px_50px_rgba(255,255,255,0.2)] hover:scale-110 transition-all active:scale-95 overflow-hidden"
+            className="group relative flex items-center gap-3 px-6 py-4 md:px-8 md:py-5 bg-white text-black rounded-2xl shadow-[0_20px_50px_rgba(255,255,255,0.2)] hover:scale-105 transition-all active:scale-95 overflow-hidden"
           >
             {/* Pulsing Aura */}
-            <div className="absolute inset-0 bg-violet-500/20 animate-pulse" />
+            <div className="absolute inset-0 bg-violet-500/10 animate-pulse" />
             
-            <div className="relative z-10 flex flex-col items-center">
-              <Zap className="w-6 h-6 md:w-8 md:h-8 fill-black" />
-              <span className="text-[7px] font-black uppercase tracking-widest mt-1 hidden md:block">Sync</span>
-            </div>
+            <Zap className="w-4 h-4 md:w-5 md:h-5 fill-black" />
+            <span className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.3em]">START PROJECT</span>
 
             {/* Shimmer Effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite]" />
           </a>
-          
-          {/* Label Tag */}
-          <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 hidden md:block">
-            <div className="glass px-4 py-2 rounded-full border border-white/10 whitespace-nowrap">
-              <p className="text-[8px] font-black text-white uppercase tracking-[0.4em]">Initialize_Sync</p>
-            </div>
-          </div>
         </motion.div>
       )}
     </AnimatePresence>
