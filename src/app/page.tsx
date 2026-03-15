@@ -1,6 +1,7 @@
 import Navbar from "@/components/landing/Navbar";
 import Hero from "@/components/landing/Hero";
 import BentoServices from "@/components/landing/BentoServices";
+import Showcase from "@/components/landing/Showcase";
 import Blueprint from "@/components/landing/Blueprint";
 import MarketAuthority from "@/components/landing/MarketAuthority";
 import PortalShowcase from "@/components/landing/PortalShowcase";
@@ -25,6 +26,7 @@ export default async function Home() {
       <main>
         <Hero city={city} />
         <BentoServices />
+        <Showcase />
         <Blueprint />
         <MarketAuthority />
         <PortalShowcase isLoggedIn={!!user} />
