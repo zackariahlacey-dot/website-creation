@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --accent: #6C63FF;
+  --accent-dark: #5549e0;
+  --dark: #0D0D1A;
+  --dark-mid: #1A1A2E;
+  --green: #00C896;
+  --gold: #F5A623;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #0D0D1A;
+  color: #F0F0F8;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #1A1A2E; }
+::-webkit-scrollbar-thumb { background: #6C63FF; border-radius: 3px; }
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid #6C63FF;
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background: rgba(108, 99, 255, 0.3);
+  color: #fff;
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark text-white font-semibold rounded-xl px-6 py-3.5 transition-all duration-200 shadow-glow hover:shadow-glow-sm hover:scale-[1.02] active:scale-[0.98] text-base;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 border-2 border-accent text-accent hover:bg-accent hover:text-white font-semibold rounded-xl px-6 py-3.5 transition-all duration-200 text-base;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 text-muted hover:text-white font-medium transition-colors duration-200 text-sm;
+  }
+
+  .section-light {
+    @apply bg-off-white text-text;
+  }
+
+  .section-dark {
+    @apply bg-dark-mid text-white;
+  }
+
+  .card {
+    @apply bg-dark-card rounded-2xl p-6 border border-white/5 shadow-card transition-all duration-300 hover:shadow-card-hover hover:border-accent/20 hover:-translate-y-1;
+  }
+
+  .card-light {
+    @apply bg-white rounded-2xl p-6 border border-border shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-purple-400;
+  }
+
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24;
+  }
+
+  .container-max {
+    @apply max-w-6xl mx-auto;
+  }
+}
+
+/* Mobile sticky bar clearance */
+.has-sticky-bar {
+  padding-bottom: 80px;
+}
+
+/* Marquee animation */
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+}
+.marquee-track {
+  display: inline-flex;
+  animation: marquee 28s linear infinite;
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Accordion */
+.accordion-content {
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.3s ease;
+}
+
+/* Number gradient */
+.step-number {
+  background: linear-gradient(135deg, #6C63FF, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
