@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import StickyBar from "@/components/StickyBar";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://vizulux.com"),
   title: {
     default: "Vizulux — Premium Web Design Vermont | Sites Built in Days",
     template: "%s | Vizulux",
