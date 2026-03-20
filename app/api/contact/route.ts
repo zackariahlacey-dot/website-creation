@@ -59,7 +59,7 @@ export async function POST(req: NextRequest) {
       try {
         // A. Email to Admin (Zack)
         await resend.emails.send({
-          from: 'Vizulux Leads <onboarding@resend.dev>',
+          from: 'Vizulux Leads <leads@vizulux.com>',
           to: [ADMIN_EMAIL],
           subject: `🚨 New Lead: ${firstName} — ${businessName}`,
           html: buildAdminEmailHtml(data),
@@ -68,7 +68,7 @@ export async function POST(req: NextRequest) {
         // B. Confirmation Email to Client
         if (email) {
           await resend.emails.send({
-            from: 'Zack from Vizulux <onboarding@resend.dev>',
+            from: 'Zack from Vizulux <hello@vizulux.com>',
             to: [email],
             subject: `We've received your project details! — Vizulux`,
             html: buildClientConfirmationHtml(data),
